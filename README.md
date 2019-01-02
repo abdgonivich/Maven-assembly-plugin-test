@@ -1,0 +1,1 @@
+# Maven-assembly-plugin-test
