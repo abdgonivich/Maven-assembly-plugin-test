@@ -10,7 +10,8 @@ public class App
 {
     public static void main( String[] args )
     {
-    	ObjectMapper a;
+    	ObjectMapper objectMapper = new ObjectMapper();
+
         System.out.println( "Hello World!" );
     }
 }
