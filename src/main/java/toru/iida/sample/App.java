@@ -13,4 +13,10 @@ public class App
     	ObjectMapper a;
         System.out.println( "Hello World!" );
     }
+
+
+    public void methodA()
+    {
+        System.out.println( "methodA" );
+    }
 }
