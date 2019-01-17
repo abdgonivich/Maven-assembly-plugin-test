@@ -6,17 +6,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * Hello world!
  *
  */
-public class App
-{
-    public static void main( String[] args )
-    {
-    	ObjectMapper a;
+public class App{
+
+    public static void main( String[] args ){
+    	
+	ObjectMapper a;
         System.out.println( "Hello World!" );
     }
 
 
-    public void methodA()
-    {
+    public void methodA() {
+
         System.out.println( "methodA" );
     }
 }
