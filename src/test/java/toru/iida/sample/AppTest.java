@@ -1,38 +1,48 @@
 package toru.iida.sample;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
+public class AppTest {
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
+	JsonNode jsonNode;
+	ObjectMapper mapper;
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
+	@Before
+	public void setUp() {
+		this.mapper = new ObjectMapper();
+	}
+
+	@Test
+	public void test1N() throws IOException {
+		File file = new File("./src/test/resource/test.json");
+		InputStreamReader inputStream = new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8);
+		jsonNode = mapper.readTree(inputStream);
+
+		String member = jsonNode.get("object_list").toString();
+
+		System.out.println(member);
+	}
+
+	@Test
+	public void test2N() throws IOException {
+		File file = new File("./src/test/resource/test.json");
+		jsonNode = mapper.readTree(file);
+
+		String member = jsonNode.get("object_list").toString();
+
+		System.out.println(member);
+	}
 }
